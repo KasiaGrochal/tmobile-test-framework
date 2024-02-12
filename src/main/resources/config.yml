@@ -1,0 +1,6 @@
+environmentProperties:
+  webUrl: "https://www.t-mobile.pl/"
+  homePageTitle: "Telefony, Tablety, Laptopy, Szybki Internet - Dołącz do T-Mobile"
+  basketHeaderText: "Twój koszyk"
+
+browser: CHROME
