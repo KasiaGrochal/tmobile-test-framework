@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Run Cucumber tests with the provided feature file
-                sh "mvn test -Dcucumber.options=src/test/resources/features/${params.FEATURE_FILE}"
+                sh "mvn test"
             }
 
             post {
