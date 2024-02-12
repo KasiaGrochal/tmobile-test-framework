@@ -1,5 +1,5 @@
 pipeline {
-
+ agent any
     parameters {
         string(name: 'FEATURE_FILE', defaultValue: 'smokeTests.feature', description: 'Path to the feature file')
     }
