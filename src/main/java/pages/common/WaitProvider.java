@@ -2,9 +2,7 @@ package pages.common;
 
 import enums.Timeouts;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
@@ -17,7 +15,8 @@ public class WaitProvider {
 
     public WaitProvider(WebDriver driver) {
         this.wait = new FluentWait<>(driver).
-                pollingEvery(Duration.ofSeconds(1));
+                pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
     }
 
 
