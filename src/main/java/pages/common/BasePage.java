@@ -59,7 +59,7 @@ public class BasePage {
 
     protected String getCurrentPageTitle() {
         String currentPageTitle = driver.getTitle();
-        log.info("Retrieving current url'{}'", currentPageTitle);
+        log.info("Retrieving current page title'{}'", currentPageTitle);
         return currentPageTitle;
     }
 
