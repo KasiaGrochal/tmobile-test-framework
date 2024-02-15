@@ -1,5 +1,6 @@
 Feature: Smoke tests for T-Moble website
 
+  @SmokeTest
   Scenario: Choose smartwatch from the list of offers
     Given I am on the home page
     When I choose "Urządzenia" from header
