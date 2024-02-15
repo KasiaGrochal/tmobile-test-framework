@@ -12,7 +12,7 @@ public class BrowserProvider {
     private static final Logger logger = LoggerFactory.getLogger(BrowserProvider.class);
 
     public static Browser getBrowser(Config config) {
-        return getBrowserValueFromPom() == null ? getBrowserFromConfigFile(config) : getBrowserSetInPOM();
+        return getBrowserValueFromPom().isEmpty() ? getBrowserFromConfigFile(config) : getBrowserSetInPOM();
     }
 
     private static String getBrowserValueFromPom(){
