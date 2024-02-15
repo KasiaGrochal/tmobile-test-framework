@@ -3,7 +3,9 @@ package pages.websitePages.productDetails;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.common.BasePage;
+
+import static enums.Timeouts.SHORT;
 
 public class ProductDetailsPage extends BasePage {
 
@@ -14,7 +16,7 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(css = "[data-qa='PRD_ProductName']")
     private WebElement productName;
 
-    public String getProductName(){
-        return waitAndGetText(productName);
+    public String getProductName() {
+        return getText(productName, SHORT);
     }
 }

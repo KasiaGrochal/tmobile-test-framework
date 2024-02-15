@@ -3,7 +3,7 @@ package pages.websitePages;
 import configuration.models.EnvironmentProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
+import pages.common.BasePage;
 
 @Slf4j
 public class HomePage extends BasePage {

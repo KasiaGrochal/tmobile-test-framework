@@ -3,8 +3,11 @@ package pages.websitePages.basket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.common.BasePage;
 import pages.websitePages.HomePage;
+
+import static enums.Timeouts.SHORT;
+import static enums.Timeouts.STANDARD;
 
 public class BasketPage extends BasePage {
 
@@ -19,12 +22,12 @@ public class BasketPage extends BasePage {
     private WebElement basketHeaderText;
 
     public HomePage clickOnTMobileLogo(){
-        waitAndClickOn(tMobileLogo);
+        clickOn(tMobileLogo, SHORT);
         return new HomePage(driver);
     }
 
     public String getBasketHeaderText(){
-        return waitAndGetText(basketHeaderText);
+        return getText(basketHeaderText, STANDARD);
     }
 
 }

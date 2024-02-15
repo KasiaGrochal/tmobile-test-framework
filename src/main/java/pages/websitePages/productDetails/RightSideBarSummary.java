@@ -3,10 +3,13 @@ package pages.websitePages.productDetails;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.common.BasePage;
 import pages.websitePages.basket.BasketPage;
 
 import java.util.List;
+
+import static enums.Timeouts.SHORT;
+import static enums.Timeouts.STANDARD;
 
 public class RightSideBarSummary extends BasePage {
     public RightSideBarSummary(WebDriver driver) {
@@ -27,15 +30,15 @@ public class RightSideBarSummary extends BasePage {
     private List<WebElement> addToBasketButton;
 
     public String getToBePaidUpfrontPrice() {
-        return waitAndGetText(getVisibleElementFromTheList(TO_BE_PAID_UPFRONT_CSS_SELECTOR, toBePaidUpfront));
+        return getText(getVisibleElementFromTheList(TO_BE_PAID_UPFRONT_CSS_SELECTOR, toBePaidUpfront, STANDARD), SHORT);
     }
 
     public String getToBePaidMonthly() {
-        return waitAndGetText(getVisibleElementFromTheList(MONTHLY_PAYMENT_CSS_SELECTOR, toBePaidMonthly));
+        return getText(getVisibleElementFromTheList(MONTHLY_PAYMENT_CSS_SELECTOR, toBePaidMonthly, STANDARD), SHORT);
     }
 
     public BasketPage addToBasket() {
-        waitAndClickOn(getVisibleElementFromTheList(ADD_TO_BASKET_CSS_SELECTOR, addToBasketButton));
+        clickOn(getVisibleElementFromTheList(ADD_TO_BASKET_CSS_SELECTOR, addToBasketButton, STANDARD),SHORT);
         return new BasketPage(driver);
     }
 

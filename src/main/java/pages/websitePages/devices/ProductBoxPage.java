@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
-import pages.BasePage;
+import pages.common.BasePage;
 import pages.websitePages.productDetails.RightSideBarSummary;
+
+import static enums.Timeouts.SHORT;
+import static enums.Timeouts.STANDARD;
 
 public class ProductBoxPage extends BasePage {
     public ProductBoxPage(WebElement productBox, WebDriver driver) {
@@ -21,18 +24,18 @@ public class ProductBoxPage extends BasePage {
     @FindBy(css = "section>div>h2")
     private WebElement productName;
 
-    public RightSideBarSummary clickOnProduct(){
+    public RightSideBarSummary clickOnProduct() {
         String partOfUrl = getProductHref();
-        waitAndClickOn(productHref);
-        waitForPageToLoad(partOfUrl);
+        clickOn(productHref, SHORT);
+        waitProvider.waitForPageToLoad(partOfUrl, STANDARD);
         return new RightSideBarSummary(driver);
     }
 
-    public String getProductHref(){
+    public String getProductHref() {
         return getWebelementHref(productHref);
     }
 
-    public String getProductName(){
+    public String getProductName() {
         return getWebelementTitle(productName);
     }
 }

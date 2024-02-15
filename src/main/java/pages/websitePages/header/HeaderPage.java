@@ -5,11 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
+import pages.common.BasePage;
 import pages.websitePages.header.dropdown.HeaderDropdown;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import static enums.Timeouts.SHORT;
+import static enums.Timeouts.STANDARD;
 
 @Slf4j
 public class HeaderPage extends BasePage {
@@ -27,13 +30,13 @@ public class HeaderPage extends BasePage {
     @FindBy(css = BASKETCOUNT_CSS_SELECTOR)
     private List<WebElement> basket;
 
-    public HeaderDropdown openDropdown(HeaderElement headerElement){
-        waitAndClickOn(getHeaderElementByName(headerElement));
+    public HeaderDropdown openDropdown(HeaderElement headerElement) {
+        clickOn(getHeaderElementByName(headerElement), STANDARD);
         return new HeaderDropdown(driver);
     }
 
-    public Integer getBasketCount(){
-        return Integer.parseInt(waitAndGetText(getVisibleBasketCount()));
+    public Integer getBasketCount() {
+        return Integer.parseInt(getText(getVisibleBasketCount(), SHORT));
     }
 
 
@@ -48,7 +51,7 @@ public class HeaderPage extends BasePage {
         throw new NoSuchElementException();
     }
 
-    private WebElement getVisibleBasketCount(){
-        return getVisibleElementFromTheList(BASKETCOUNT_CSS_SELECTOR,basket);
+    private WebElement getVisibleBasketCount() {
+        return getVisibleElementFromTheList(BASKETCOUNT_CSS_SELECTOR, basket, STANDARD);
     }
 }

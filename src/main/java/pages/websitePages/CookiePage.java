@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
+import pages.common.BasePage;
+
+import static enums.Timeouts.STANDARD;
 
 public class CookiePage extends BasePage {
     public CookiePage(WebDriver driver) {
@@ -16,7 +18,7 @@ public class CookiePage extends BasePage {
     private WebElement acceptCookiesButton;
 
     public HomePage acceptHomePageCookies(){
-        waitAndClickOn(acceptCookiesButton);
+        clickOn(acceptCookiesButton, STANDARD);
         return new HomePage(driver);
     }
 }

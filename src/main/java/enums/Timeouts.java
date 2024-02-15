@@ -2,16 +2,18 @@ package enums;
 
 import lombok.Getter;
 
+import java.time.Duration;
+
 public enum Timeouts {
-    SHORT(5),
-    STANDARD(10),
-    MID(15),
-    LONG(30);
+    SHORT(Duration.ofSeconds(5)),
+    STANDARD(Duration.ofSeconds(10)),
+    MID(Duration.ofSeconds(15)),
+    LONG(Duration.ofSeconds(20));
 
     @Getter
-    private int timeout;
+    private Duration timeout;
 
-    Timeouts(int timeout) {
+    Timeouts(Duration timeout) {
         this.timeout = timeout;
     }
 }
