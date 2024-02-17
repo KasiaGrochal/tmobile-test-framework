@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.common.BasePage;
-import pages.websitePages.productDetails.RightSideBarSummary;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,11 +18,6 @@ public class DevicesPage extends BasePage {
     public DevicesPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
-    }
-
-    public RightSideBarSummary chooseFirstProductFromTheList() {
-        log.info("Choosing first product from the list");
-        return getFirstProductBoxFromTheList().clickOnProduct();
     }
 
     public ProductBoxPage getFirstProductBoxFromTheList() {

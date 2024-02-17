@@ -19,7 +19,6 @@ import static pages.websitePages.header.dropdown.DropDownGroupElement.getDropDow
 public class HeaderDropdownSteps {
 
     private HeaderDropdown headerDropdown;
-    private HeaderElement headerElement;
     private Container container;
 
     public HeaderDropdownSteps(Hooks hooks, Container container) {
