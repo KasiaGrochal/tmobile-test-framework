@@ -10,6 +10,7 @@ public enum Timeouts {
     STANDARD(10),
     MID(15),
     LONG(20);
+
     private int timeout;
     private Duration durationOfSeconds;
 

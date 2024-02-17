@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.NoSuchElementException;
+
 @Slf4j
 
 public class BrowserProvider {
@@ -42,7 +45,7 @@ public class BrowserProvider {
                 return Browser.FIREFOX;
             default:
                 logger.info("Found browser set in POM: '{}' -invalid name for browser",browserName);
-                return null;
+                throw  new NoSuchElementException("Incorrect Name of the browser");
         }
     }
 }

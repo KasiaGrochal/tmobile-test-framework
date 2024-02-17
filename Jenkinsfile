@@ -1,33 +1,22 @@
 pipeline {
- agent any
-    parameters {
-        string(name: 'FEATURE_FILE', defaultValue: 'smokeTests.feature', description: 'Path to the feature file')
-    }
+    agent any
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your/repository.git'
+                git branch: 'fix_for_waits', url: 'https://github.com/KasiaGrochal/tmobile-test-framework'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat "mvn clean compile"
             }
         }
-
         stage('Test') {
             steps {
-                // Run Cucumber tests with the provided feature file
-                sh "mvn test"
-            }
-
-            post {
-                always {
-                    junit 'target/cucumber-reports/*.xml'
-                }
+                bat "mvn test -DBrowser_Value=${browser} -Dtags=@SmokeTest"
             }
         }
-}
+    }
 }

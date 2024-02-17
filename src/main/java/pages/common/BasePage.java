@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static enums.Timeouts.SHORT;
 
@@ -65,12 +64,11 @@ public class BasePage {
 
     protected WebElement getVisibleElementFromTheList(String cssSelector, List<WebElement> listOfWebelements, Timeouts timeout) {
         waitProvider.waitForListOfWebelementsToBeMoreThan(cssSelector, 0, timeout);
-        for (WebElement element : listOfWebelements) {
-            if (element.isDisplayed()) {
-                return element;
-            }
-        }
-        throw new NoSuchElementException();
+        return listOfWebelements.
+                stream().
+                filter(WebElement::isDisplayed).
+                findFirst().
+                orElseThrow();
     }
 
 }

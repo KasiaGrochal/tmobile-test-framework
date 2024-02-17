@@ -21,6 +21,10 @@ public enum DropDownGroupElement {
     }
 
     public static DropDownGroupElement getDropDownGroupElementByName(String name){
-        return Arrays.stream(DropDownGroupElement.values()).filter(x-> x.getName().equals(name)).findFirst().orElseThrow();
+        return Arrays.
+                stream(DropDownGroupElement.values()).
+                filter(x-> x.getName().equals(name)).
+                findFirst().
+                orElseThrow();
     }
 }
