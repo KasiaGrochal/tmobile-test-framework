@@ -15,7 +15,6 @@ public enum DropDownGroupElement {
     @Getter
     private String name;
 
-
     DropDownGroupElement(String name) {
         this.name = name;
     }

@@ -13,16 +13,18 @@ import static enums.Timeouts.SHORT;
 import static enums.Timeouts.STANDARD;
 
 public class ProductBoxPage extends BasePage {
-    @FindBy(css = "a")
-    private WebElement productHref;
-    @FindBy(css = "section>div>h2")
-    private WebElement productName;
 
     public ProductBoxPage(WebElement productBox, WebDriver driver) {
         super(driver);
         DefaultElementLocatorFactory devicesPage = new DefaultElementLocatorFactory(productBox);
         PageFactory.initElements(devicesPage, this);
     }
+
+    @FindBy(css = "a")
+    private WebElement productHref;
+
+    @FindBy(css = "section>div>h2")
+    private WebElement productName;
 
     public RightSideBarSummary clickOnProduct() {
         String partOfUrl = StringConvertor.getProductNameFromWebUrl(getProductHref());

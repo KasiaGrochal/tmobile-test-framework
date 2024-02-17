@@ -13,13 +13,14 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class HeaderDropdown extends BasePage {
-    @FindBy(css = "[class*='group-[.more-columns]']")
-    private List<WebElement> headerDropDownGroups;
 
     public HeaderDropdown(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(css = "[class*='group-[.more-columns]']")
+    private List<WebElement> headerDropDownGroups;
 
     public DropDownGroup chooseDropdownGroup(DropDownGroupElement dropDownGroupElement) {
         String dropDownGroupElementName = dropDownGroupElement.getName();

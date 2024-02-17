@@ -12,13 +12,14 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class DevicesPage extends BasePage {
-    @FindBy(css = "[class*='dt_productCards']")
-    private List<WebElement> listOfProducts;
 
     public DevicesPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(css = "[class*='dt_productCards']")
+    private List<WebElement> listOfProducts;
 
     public ProductBoxPage getFirstProductBoxFromTheList() {
         return getListOfProductBoxes().get(0);

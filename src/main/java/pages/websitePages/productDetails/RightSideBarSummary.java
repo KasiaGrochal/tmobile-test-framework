@@ -12,13 +12,14 @@ import static enums.Timeouts.SHORT;
 import static enums.Timeouts.STANDARD;
 
 public class RightSideBarSummary extends BasePage {
-    public RightSideBarSummary(WebDriver driver) {
-        super(driver);
-    }
 
     private final String TO_BE_PAID_UPFRONT_CSS_SELECTOR = "[class*='upfront-panel']>div>div>div>div";
     private final String MONTHLY_PAYMENT_CSS_SELECTOR = "[class*='styles__StyledMonthly']>div>div>div>div";
     private final String ADD_TO_BASKET_CSS_SELECTOR = "[data-qa='PRD_AddToBasket']";
+
+    public RightSideBarSummary(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = TO_BE_PAID_UPFRONT_CSS_SELECTOR)
     private List<WebElement> toBePaidUpfront;

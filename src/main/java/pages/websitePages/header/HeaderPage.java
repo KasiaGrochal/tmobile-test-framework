@@ -18,15 +18,17 @@ import static enums.Timeouts.STANDARD;
 public class HeaderPage extends BasePage {
 
     private final String BASKETCOUNT_CSS_SELECTOR = "[data-ma='menu-basket']>div";
-    @FindBy(css = "[class*='group menu-dropdown-item']")
-    private List<WebElement> headerDropdownElements;
-    @FindBy(css = BASKETCOUNT_CSS_SELECTOR)
-    private List<WebElement> basket;
 
     public HeaderPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(css = "[class*='group menu-dropdown-item']")
+    private List<WebElement> headerDropdownElements;
+
+    @FindBy(css = BASKETCOUNT_CSS_SELECTOR)
+    private List<WebElement> basket;
 
     public HeaderDropdown openDropdown(HeaderElement headerElement) {
         clickOn(getHeaderElementByName(headerElement), STANDARD);

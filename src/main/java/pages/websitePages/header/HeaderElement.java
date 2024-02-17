@@ -14,7 +14,6 @@ public enum HeaderElement {
     @Getter
     private String name;
 
-
     HeaderElement(String name) {
         this.name = name;
     }

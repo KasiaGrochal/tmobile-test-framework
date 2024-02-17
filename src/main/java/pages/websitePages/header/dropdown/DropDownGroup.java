@@ -12,17 +12,18 @@ import java.util.List;
 import static enums.Timeouts.STANDARD;
 
 public class DropDownGroup extends BasePage {
-    @FindBy(css = "[class*='text']")
-    private WebElement groupName;
-
-    @FindBy(css = "ul>li>a")
-    private List<WebElement> contractOptionsList;
 
     public DropDownGroup(WebElement dropdownGroup, WebDriver driver) {
         super(driver);
         DefaultElementLocatorFactory headerDropdown = new DefaultElementLocatorFactory(dropdownGroup);
         PageFactory.initElements(headerDropdown, this);
     }
+
+    @FindBy(css = "[class*='text']")
+    private WebElement groupName;
+
+    @FindBy(css = "ul>li>a")
+    private List<WebElement> contractOptionsList;
 
     public DropDownGroup chooseContractOption(ContractOptions contractOptions) {
         clickOn(getContractOptionFromList(contractOptions), STANDARD);
