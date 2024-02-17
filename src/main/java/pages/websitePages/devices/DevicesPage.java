@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
-import pages.websitePages.productDetails.RightSideBarSummary;
+import pages.common.BasePage;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class DevicesPage extends BasePage {
+
     public DevicesPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -21,22 +21,13 @@ public class DevicesPage extends BasePage {
     @FindBy(css = "[class*='dt_productCards']")
     private List<WebElement> listOfProducts;
 
-
-
-    public RightSideBarSummary chooseFirstProductFromTheList() {
-        log.info("Choosing first product from the list");
-        return getFirstProductBoxFromTheList().clickOnProduct();
-    }
-
-    public ProductBoxPage getFirstProductBoxFromTheList(){
+    public ProductBoxPage getFirstProductBoxFromTheList() {
         return getListOfProductBoxes().get(0);
     }
 
     public List<ProductBoxPage> getListOfProductBoxes() {
-        List<ProductBoxPage> listOfProductBoxes = new ArrayList<>();
-        for (WebElement productBox : listOfProducts) {
-            listOfProductBoxes.add(new ProductBoxPage(productBox, driver));
-        }
-        return listOfProductBoxes;
+        return listOfProducts.stream()
+                .map(webElement -> new ProductBoxPage(webElement, driver))
+                .collect(Collectors.toList());
     }
 }

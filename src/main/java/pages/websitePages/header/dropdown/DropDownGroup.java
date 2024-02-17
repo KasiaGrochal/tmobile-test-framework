@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
-import pages.BasePage;
+import pages.common.BasePage;
 
 import java.util.List;
 
+import static enums.Timeouts.STANDARD;
+
 public class DropDownGroup extends BasePage {
+
     public DropDownGroup(WebElement dropdownGroup, WebDriver driver) {
         super(driver);
         DefaultElementLocatorFactory headerDropdown = new DefaultElementLocatorFactory(dropdownGroup);
@@ -23,13 +26,13 @@ public class DropDownGroup extends BasePage {
     private List<WebElement> contractOptionsList;
 
     public DropDownGroup chooseContractOption(ContractOptions contractOptions) {
-        waitAndClickOn(getContractOptionFromList(contractOptions));
-        waitForPageToLoad(contractOptions.getPartOfTheUrl());
+        clickOn(getContractOptionFromList(contractOptions), STANDARD);
+        waitProvider.waitForPageToLoad(contractOptions.getPartOfTheUrl(), STANDARD);
         return this;
     }
 
     public String getGroupName() {
-        return waitAndGetText(groupName);
+        return getText(groupName, STANDARD);
     }
 
 

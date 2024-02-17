@@ -27,6 +27,10 @@ public enum ContractOptions {
     }
 
     public static ContractOptions getContractOptionByName(String name){
-        return Arrays.stream(ContractOptions.values()).filter(x-> x.getName().equals(name)).findFirst().orElseThrow();
+        return Arrays.
+                stream(ContractOptions.values()).
+                filter(x-> x.getName().equals(name)).
+                findFirst().
+                orElseThrow();
     }
 }

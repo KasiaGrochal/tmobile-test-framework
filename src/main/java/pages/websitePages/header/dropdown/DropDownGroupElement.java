@@ -15,12 +15,15 @@ public enum DropDownGroupElement {
     @Getter
     private String name;
 
-
     DropDownGroupElement(String name) {
         this.name = name;
     }
 
     public static DropDownGroupElement getDropDownGroupElementByName(String name){
-        return Arrays.stream(DropDownGroupElement.values()).filter(x-> x.getName().equals(name)).findFirst().orElseThrow();
+        return Arrays.
+                stream(DropDownGroupElement.values()).
+                filter(x-> x.getName().equals(name)).
+                findFirst().
+                orElseThrow();
     }
 }

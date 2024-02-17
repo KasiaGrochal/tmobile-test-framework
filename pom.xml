@@ -26,7 +26,6 @@
 
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <Browser_Value>chrome</Browser_Value>
     </properties>
 
     <dependencies>
@@ -87,12 +86,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>${hamcrest.version}</version>
@@ -144,7 +137,7 @@
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <Browser_Value>${Browser_Value}</Browser_Value>
+                        <Browser_Value></Browser_Value>
                     </systemPropertyVariables>
                     <includes>
                         <include>**/*TestRunner.java</include>

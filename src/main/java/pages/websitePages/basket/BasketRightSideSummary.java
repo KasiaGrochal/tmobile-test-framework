@@ -3,7 +3,9 @@ package pages.websitePages.basket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
+import pages.common.BasePage;
+
+import static enums.Timeouts.STANDARD;
 
 public class BasketRightSideSummary extends BasePage {
 
@@ -17,12 +19,12 @@ public class BasketRightSideSummary extends BasePage {
     @FindBy(css = "[data-qa='BKT_TotalMonthly']")
     private WebElement toBePaidMonthlyPrice;
 
-    public String getToBePaidUpfrontPrice(){
-        return waitAndGetText(toBePaidUpfrontPrice);
+    public String getToBePaidUpfrontPrice() {
+        return getText(toBePaidUpfrontPrice, STANDARD);
     }
 
-    public String getToBePaidMonthly(){
-        return waitAndGetText(toBePaidMonthlyPrice);
+    public String getToBePaidMonthly() {
+        return getText(toBePaidMonthlyPrice, STANDARD);
     }
 
 
