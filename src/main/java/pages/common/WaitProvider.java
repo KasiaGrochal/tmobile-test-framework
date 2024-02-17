@@ -19,32 +19,27 @@ public class WaitProvider {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
     }
 
-
     protected void waitForWebElementToBeClickable(WebElement webElement, Timeouts timeout) {
         log.info("Start waiting for WebElement to be clickable- Timeout set to {} seconds", timeout.getTimeout());
-        setNewTimeout(timeout);
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        setNewTimeout(timeout).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     protected void waitForWebElementToBeVisible(WebElement webElement, Timeouts timeout) {
         log.info("Start waiting for WebElement to be clickable- Timeout set to {} seconds", timeout.getTimeout());
-        setNewTimeout(timeout);
-        wait.until(ExpectedConditions.visibilityOf(webElement));
+        setNewTimeout(timeout).until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void waitForListOfWebelementsToBeMoreThan(String cssSelector, int moreThan, Timeouts timeout) {
         log.info("Start waiting for the List of Webelements to be more than {} - Timeout set to {} seconds", moreThan, timeout.getTimeout());
-        setNewTimeout(timeout);
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector(cssSelector), moreThan));
+        setNewTimeout(timeout).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector(cssSelector), moreThan));
     }
 
     public void waitForPageToLoad(String website, Timeouts timeout) {
         log.info("Wait for page with url '{}' to load. Timeout set to {} seconds", website, timeout.getTimeout());
-        setNewTimeout(timeout);
-        wait.until(ExpectedConditions.urlContains(website));
+        setNewTimeout(timeout).until(ExpectedConditions.urlContains(website));
     }
 
-    private void setNewTimeout(Timeouts timeout) {
-        wait.withTimeout(timeout.getDurationOfSeconds());
+    private FluentWait<WebDriver> setNewTimeout(Timeouts timeout) {
+        return wait.withTimeout(timeout.getDurationOfSeconds());
     }
 }
