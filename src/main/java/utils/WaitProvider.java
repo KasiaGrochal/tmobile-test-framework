@@ -15,8 +15,8 @@ public class WaitProvider {
 
     public WaitProvider(WebDriver driver) {
         this.wait = new FluentWait<>(driver).
-                pollingEvery(Duration.ofSeconds(1))
-                .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+                pollingEvery(Duration.ofSeconds(1)).
+                ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
     }
 
     public void waitForWebElementToBeClickable(WebElement webElement, Timeouts timeout) {
