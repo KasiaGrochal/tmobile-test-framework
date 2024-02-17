@@ -1,4 +1,4 @@
-package pages.common;
+package utils;
 
 import enums.Timeouts;
 import lombok.extern.slf4j.Slf4j;
@@ -19,17 +19,17 @@ public class WaitProvider {
                 .ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
     }
 
-    protected void waitForWebElementToBeClickable(WebElement webElement, Timeouts timeout) {
+    public void waitForWebElementToBeClickable(WebElement webElement, Timeouts timeout) {
         log.info("Start waiting for WebElement to be clickable- Timeout set to {} seconds", timeout.getTimeout());
         setNewTimeout(timeout).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    protected void waitForWebElementToBeVisible(WebElement webElement, Timeouts timeout) {
+    public void waitForWebElementToBeVisible(WebElement webElement, Timeouts timeout) {
         log.info("Start waiting for WebElement to be clickable- Timeout set to {} seconds", timeout.getTimeout());
         setNewTimeout(timeout).until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    protected void waitForListOfWebelementsToBeMoreThan(String cssSelector, int moreThan, Timeouts timeout) {
+    public void waitForListOfWebelementsToBeMoreThan(String cssSelector, int moreThan, Timeouts timeout) {
         log.info("Start waiting for the List of Webelements to be more than {} - Timeout set to {} seconds", moreThan, timeout.getTimeout());
         setNewTimeout(timeout).until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector(cssSelector), moreThan));
     }
