@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'fix_for_waits', url: 'https://github.com/KasiaGrochal/tmobile-test-framework'
+                git branch: 'improvements', url: 'https://github.com/KasiaGrochal/tmobile-test-framework'
             }
         }
 
